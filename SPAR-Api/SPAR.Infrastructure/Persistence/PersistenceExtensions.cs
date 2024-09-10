@@ -12,7 +12,10 @@ public static class PersistenceExtensions
     }
     private static void ConfigureDbContext(this DbContextOptionsBuilder builder, string connectionString) =>
          builder
-             .UseNpgsql(connectionString)
+             .UseNpgsql(connectionString, opt =>
+             {
+                 opt.MigrationsAssembly("SPAR.Infrastructure");
+             })
              .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
              .ConfigureWarnings(x => x.Throw(RelationalEventId.MultipleCollectionIncludeWarning));
 }
