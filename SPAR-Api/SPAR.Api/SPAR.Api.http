@@ -9,3 +9,30 @@ Response
 }
 
 ###
+
+GET {{ApplicatinNameApi_HostAddress}}/personal-data
+Accept: application/json
+
+###
+
+POST {{ApplicatinNameApi_HostAddress}}/personal-data
+Accept: application/json
+Content-Type: application/json
+
+{
+    "identifieringsinformation": {
+      "kundNrLeveransMottagare": 1,
+      "kundNrSlutkund": 2,
+      "uppdragId": 3,
+      "slutAnvandarId": "4",
+      "slutAnvandarUtokadBehorighet": [0]
+    },
+    "personsokningFraga": {
+      "items": [
+        "123456"
+      ],
+      "itemsElementName": [
+        0
+      ]
+    }
+}
