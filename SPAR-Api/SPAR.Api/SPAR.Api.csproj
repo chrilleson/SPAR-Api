@@ -19,8 +19,6 @@
   <ItemGroup>
     <ProjectReference Include="..\SPAR.Application\SPAR.Application.csproj" />
     <ProjectReference Include="..\SPAR.Common\SPAR.Common.csproj" />
-    <ProjectReference Include="..\SPAR.Infrastructure\SPAR.Infrastructure.csproj" />
-    <ProjectReference Include="..\SPAR.Repositories\SPAR.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,17 +1,12 @@
 using SPAR.Api.Extensions;
 using SPAR.Api.Middlewares;
 using SPAR.Application;
-using SPAR.Infrastructure.Persistence;
-using SPAR.Repositories;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog();
 
-// Add services to the container.
-builder.Services.AddPersistence(builder.Configuration.GetValue<string>("ConnectionStrings:Postgres"));
-builder.Services.AddRepositories();
 builder.Services.AddApplication();
 builder.Services.AddApi();
 
