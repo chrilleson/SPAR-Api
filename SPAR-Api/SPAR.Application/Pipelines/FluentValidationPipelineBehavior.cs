@@ -3,9 +3,7 @@ using MediatR;
 
 namespace SPAR.Application.Pipelines;
 
-using Exceptions;
-
-public class FluentValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TRequest>
+public class FluentValidationPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
 {
     private readonly IEnumerable<IValidator<TRequest>> _validators;
 
@@ -22,8 +20,7 @@ public class FluentValidationPipelineBehavior<TRequest, TResponse> : IPipelineBe
 
             if (!validationResult.IsValid)
             {
-                var errorMessages = validationResult.Errors.Select(x => x.ErrorMessage).ToList();
-                throw new ValidationException(errorMessages);
+                throw new FluentValidation.ValidationException(validationResult.Errors);
             }
         }
 

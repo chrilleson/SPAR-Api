@@ -37,8 +37,8 @@ app.UseHealthChecks("/health");
 app.MapControllers();
 app.MapGet("/", () => "SPAR Api is alive and kicking!");
 
-var personalDataGroup = app.MapGroup("/personal-data");
-personalDataGroup.MapGet("/", async (IMediator mediator) => await mediator.Send(new GetPersonalDataQuery()));
-personalDataGroup.MapPost("/", async (IMediator mediator, [FromBody]PersonSökRequest personRequest) => await mediator.Send(new CreatePersonCommand(personRequest)));
+// var personalDataGroup = app.MapGroup("/personal-data");
+// personalDataGroup.MapGet("/", async (IMediator mediator) => await mediator.Send(new GetPersonalDataQuery()));
+// personalDataGroup.MapPost("/", async (IMediator mediator, PersonSökRequest personRequest) => await mediator.Send(new CreatePersonCommand(personRequest)));
 
 app.Run();

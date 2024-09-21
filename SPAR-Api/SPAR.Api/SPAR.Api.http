@@ -36,3 +36,12 @@ Content-Type: application/json
       ]
     }
 }
+
+###
+
+POST {{ApplicatinNameApi_HostAddress}}/personal-data
+Accept: application/json
+Content-Type: application/json
+
+{
+}
